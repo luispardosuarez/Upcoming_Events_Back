@@ -55,7 +55,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/events").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, endpoint + "/images").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/users").permitAll()
-                        .requestMatchers(HttpMethod.GET, endpoint + "/images").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/images/**").permitAll()
                         .anyRequest().authenticated())
                 .userDetailsService(jpaUserDetailService)
                 .httpBasic(Customizer.withDefaults())
